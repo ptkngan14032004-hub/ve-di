@@ -1,16 +1,1412 @@
 [
-{"text":"con mèo","kind":"Từ ghép","difficulty":1},{"text":"cái quạt","kind":"Từ ghép","difficulty":1},
-{"text":"xe máy","kind":"Từ ghép","difficulty":1},{"text":"bánh mì","kind":"Từ ghép","difficulty":1},
-{"text":"áo dài","kind":"Từ ghép","difficulty":1},{"text":"nón lá","kind":"Từ ghép","difficulty":1},
-{"text":"cà phê","kind":"Từ ghép","difficulty":1},{"text":"trống cơm","kind":"Từ ghép","difficulty":2},
-{"text":"cầu vồng","kind":"Từ ghép","difficulty":2},{"text":"đèn ông sao","kind":"Từ ghép","difficulty":2},
-{"text":"mưa","kind":"Từ đơn","difficulty":1},{"text":"nhà","kind":"Từ đơn","difficulty":1},
-{"text":"cá","kind":"Từ đơn","difficulty":1},{"text":"trăng","kind":"Từ đơn","difficulty":1},
-{"text":"ăn cháo đá bát","kind":"Thành ngữ","difficulty":2},{"text":"nước chảy đá mòn","kind":"Thành ngữ","difficulty":2},
-{"text":"mèo mả gà đồng","kind":"Thành ngữ","difficulty":3},{"text":"nuôi ong tay áo","kind":"Thành ngữ","difficulty":3},
-{"text":"chạy sấp chạy ngửa","kind":"Thành ngữ","difficulty":2},{"text":"đứng núi này trông núi nọ","kind":"Thành ngữ","difficulty":2},
-{"text":"có công mài sắt có ngày nên kim","kind":"Tục ngữ","difficulty":2},{"text":"uống nước nhớ nguồn","kind":"Tục ngữ","difficulty":1},
-{"text":"một cây làm chẳng nên non","kind":"Tục ngữ","difficulty":2},{"text":"gần mực thì đen","kind":"Tục ngữ","difficulty":2},
-{"text":"con cò bay lả bay la","kind":"Ca dao","difficulty":2},{"text":"thuyền về có nhớ bến chăng","kind":"Ca dao","difficulty":3},
-{"text":"công cha như núi thái sơn","kind":"Ca dao","difficulty":2}
+{
+"text": "mưa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "nhà",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cá",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "trăng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "sao",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "mây",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "gió",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "lửa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "núi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "sông",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "biển",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cây",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "hoa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "lá",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chim",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "gà",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "vịt",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "heo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bò",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "trâu",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chó",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "mèo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "voi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "hổ",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "rồng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "rùa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ếch",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ong",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bướm",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cua",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "tôm",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ghe",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "thuyền",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cầu",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đường",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cửa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bàn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ghế",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "giường",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "tủ",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đèn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "quạt",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "dù",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "nón",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "giày",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "áo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "quần",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "mũ",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "kính",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chìa khóa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "sách",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bút",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "thước",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cặp",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "gương",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chổi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "xô",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "nồi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chén",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đũa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "muỗng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "dao",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "kéo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "búa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cưa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "thang",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bóng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "diều",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "trống",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đàn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "kèn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "con mèo",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cái quạt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xe máy",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh mì",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "áo dài",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nón lá",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cà phê",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "trống cơm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cầu vồng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đèn ông sao",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "xe đạp",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xe buýt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "máy bay",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tàu hỏa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tàu thủy",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xích lô",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ô tô",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cầu thang",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cửa sổ",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tủ lạnh",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "máy giặt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "quạt điện",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bàn học",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ghế sofa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đèn pin",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "điện thoại",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "máy tính",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bàn phím",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tai nghe",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ổ khóa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh chưng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh tét",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh xèo",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh cuốn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "phở bò",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bún chả",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cơm tấm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hủ tiếu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "gỏi cuốn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chả giò",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nem rán",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bún riêu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xôi gấc",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chè đậu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "sinh tố",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "trà sữa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "kem ốc quế",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "mía đường",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "dưa hấu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "thanh long",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chôm chôm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "măng cụt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "sầu riêng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "quả xoài",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nải chuối",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bắp ngô",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "củ cà rốt",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "rau muống",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa sen",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa mai",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa đào",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa hướng dương",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "cây dừa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cây tre",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "lúa nước",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ruộng bậc thang",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "con trâu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con cua",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con rùa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con ếch",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con khỉ",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con cá heo",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "cá chép",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cá sấu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "gà trống",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "vịt quay",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chim bồ câu",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "bướm bướm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chuồn chuồn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đom đóm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ông mặt trời",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "mặt trăng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ngôi sao",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cơn bão",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cầu Rồng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chùa Một Cột",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "Hồ Gươm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "vịnh Hạ Long",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "nhà sàn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nhà rông",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chợ nổi",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đèn lồng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "múa lân",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "múa rối nước",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "đàn bầu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đàn tranh",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "sáo trúc",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "võng đay",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nón quai thao",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "xe lăn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bàn chải",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "kem đánh răng",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "xà phòng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "khăn tắm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bình nước",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ô che mưa",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "áo mưa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ăn cháo đá bát",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nước chảy đá mòn",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "mèo mả gà đồng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nuôi ong tay áo",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "chạy sấp chạy ngửa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đứng núi này trông núi nọ",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "chuột sa chĩnh gạo",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "ếch ngồi đáy giếng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "thuyền theo lái gái theo chồng",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "mưa dầm thấm lâu",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nước đổ lá khoai",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đầu voi đuôi chuột",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "cá mè một lứa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "cưỡi ngựa xem hoa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đàn gảy tai trâu",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "rút dây động rừng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "vẽ rắn thêm chân",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "treo đầu dê bán thịt chó",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "ăn không ngồi rồi",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "miệng nam mô bụng bồ dao găm",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "tay làm hàm nhai",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "tai vách mạch rừng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "một công đôi việc",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "một nắng hai sương",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nằm gai nếm mật",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "lá lành đùm lá rách",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nhắm mắt làm ngơ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "mở cờ trong bụng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "cười như nắc nẻ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "khóc như mưa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nhanh như cắt",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "chậm như rùa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "khỏe như voi",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "gầy như cò hương",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "hiền như bụt",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đen như cột nhà cháy",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "trắng như tuyết",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đẹp như tiên",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "sáng như gương",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "lạnh như tiền",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nóng như lửa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "ngọt như mía lùi",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "chó treo mèo đậy",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "thả con săn sắt bắt con cá rô",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "lên voi xuống chó",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "ngựa quen đường cũ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "trâu buộc ghét trâu ăn",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "tức nước vỡ bờ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nói gần nói xa chẳng qua nói thật",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "sông có khúc người có lúc",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "có công mài sắt có ngày nên kim",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "uống nước nhớ nguồn",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "một cây làm chẳng nên non",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "gần mực thì đen",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "gần đèn thì sáng",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "ăn quả nhớ kẻ trồng cây",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "học ăn học nói học gói học mở",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "không thầy đố mày làm nên",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "tốt gỗ hơn tốt nước sơn",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "lời nói chẳng mất tiền mua",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "thương người như thể thương thân",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "bầu ơi thương lấy bí cùng",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "một con ngựa đau cả tàu bỏ cỏ",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "chớ thấy sóng cả mà ngã tay chèo",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "đi một ngày đàng học một sàng khôn",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "có chí thì nên",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "thất bại là mẹ thành công",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "cái nết đánh chết cái đẹp",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "tre già măng mọc",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "nhập gia tùy tục",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "ở hiền gặp lành",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "tránh vỏ dưa gặp vỏ dừa",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "dục tốc bất đạt",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "ăn có nhai nói có nghĩ",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "im lặng là vàng",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "chị ngã em nâng",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "anh em như thể tay chân",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "đói cho sạch rách cho thơm",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "cháy nhà ra mặt chuột",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "nước lã mà vã nên hồ",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "gieo gió gặp bão",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "trời mưa thì mặc trời mưa",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "nhiều tay vỗ nên kêu",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "bán anh em xa mua láng giềng gần",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "con cò bay lả bay la",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "thuyền về có nhớ bến chăng",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "công cha như núi thái sơn",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "nghĩa mẹ như nước trong nguồn chảy ra",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "con cò mà đi ăn đêm",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "trèo lên cây bưởi hái hoa",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "hôm qua tát nước đầu đình",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "qua đình ngả nón trông đình",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "bao giờ cho đến tháng ba",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "ai ơi bưng bát cơm đầy",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "đêm trăng thanh anh mới hỏi nàng",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "gió đưa cành trúc la đà",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "trong đầm gì đẹp bằng sen",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "lúa chiêm lấp ló đầu bờ",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "thân em như hạt mưa sa",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "muốn sang thì bắc cầu kiều",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "con ơi nhớ lấy câu này",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "em như cục đất ven đường",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "cô kia cắt cỏ bên sông",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "ngó lên nuộc lạt mái nhà",
+"kind": "Ca dao",
+"difficulty": 3
+}
 ]
