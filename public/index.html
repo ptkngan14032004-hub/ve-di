@@ -1,130 +1,1412 @@
-<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VẼ ĐI!</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&family=Lilita+One&display=swap">
-<style>
-:root{--bg:#FFF1D6;--card:#fff;--ink:#1F2430;--mute:#4A4F5C;--red:#C8321F;--yel:#FFC93C;--teal:#0F5F58}
-@media(prefers-color-scheme:dark){:root{--bg:#1B1A17;--card:#2A2823;--ink:#F6EEDD;--mute:#C9C2B0;--red:#E2543F;--teal:#3FB5A8}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Be Vietnam Pro',system-ui,sans-serif}
-button,input,select{font:inherit;color:inherit}button{cursor:pointer}[hidden]{display:none!important}
-.card{background:var(--card);border:3px solid var(--ink);border-radius:16px;box-shadow:4px 4px 0 var(--ink);padding:14px}
-.btn{min-height:46px;padding:0 18px;border:3px solid var(--ink);border-radius:12px;font-weight:800;background:var(--card)}
-.red{background:var(--red);color:#fff}.yel{background:var(--yel);color:#1F2430}
-input[type=text],input[type=password],input[type=number]{min-height:46px;width:100%;border:3px solid var(--ink);border-radius:12px;padding:0 12px;background:var(--card)}
-:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
-.wrap{max-width:1100px;margin:0 auto;padding:20px}.logo{font-family:'Lilita One',sans-serif;color:var(--red);margin:0;line-height:1}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}.stack{display:grid;gap:10px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{min-height:40px;padding:0 14px;border-radius:99px;border:3px solid var(--ink);background:var(--card);font-weight:600}
-.chip[aria-pressed=true]{background:var(--teal);color:#fff}.mute{color:var(--mute)}
-.item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px;border:2px solid var(--ink);border-radius:12px}
-.grid{display:grid;grid-template-columns:220px 1fr 280px;gap:14px;margin-top:14px}
-@media(max-width:860px){.cols,.grid{grid-template-columns:1fr}}
-.row{display:flex;justify-content:space-between;padding:6px 10px;border-radius:10px}.row.on{background:var(--yel);color:#1F2430}.row.ok{color:var(--teal);font-weight:800}
-#cv{width:100%;aspect-ratio:4/3;background:#fff;border:3px solid var(--ink);border-radius:16px;touch-action:none;display:block}
-.hint{font-size:clamp(20px,4vw,32px);font-weight:800;letter-spacing:6px;text-align:center}
-.timer{width:64px;height:64px;border-radius:50%;background:var(--yel);color:#1F2430;border:3px solid var(--ink);display:grid;place-items:center;font-size:24px;font-weight:800}
-.sw{width:44px;height:44px;border-radius:50%;border:3px solid var(--ink)}.sw[aria-pressed=true]{outline:4px solid var(--teal);outline-offset:2px}
-#log{height:280px;overflow:auto;display:grid;gap:5px;align-content:start;font-size:15px;margin:8px 0}.sys{color:var(--teal);font-weight:800}.priv{opacity:.7}
-</style></head><body><main class="wrap">
-
-<section id="home">
-<h1 class="logo" style="font-size:clamp(60px,12vw,110px)">VẼ ĐI!</h1>
-<div class="cols" style="margin-top:12px">
-<div class="card stack">
-<label for="nick" style="font-weight:800">Biệt danh</label><input type="text" id="nick" maxlength="16" value="Bạn Mèo Béo">
-<button class="btn red" id="quick" style="min-height:54px;font-size:19px">Chơi ngay</button>
-<div style="display:flex;gap:8px"><input type="text" id="code" placeholder="Mã phòng" aria-label="Mã phòng"><button class="btn yel" id="joinCode">Vào</button></div>
-<input type="password" id="joinPass" placeholder="Mật khẩu phòng (nếu có)" aria-label="Mật khẩu phòng" hidden>
-<b style="margin-top:8px">Tạo phòng</b>
-<input type="text" id="rname" placeholder="Tên phòng" aria-label="Tên phòng" maxlength="24">
-<div class="chips" id="kinds" role="group" aria-label="Kho từ"></div>
-<div style="display:flex;gap:8px"><label class="mute" style="flex:1">Giây/lượt<input type="number" id="rtime" value="60" min="30" max="180"></label><label class="mute" style="flex:1">Điểm thắng<input type="number" id="rgoal" value="300" min="100" max="2000"></label></div>
-<input type="password" id="rpass" placeholder="Mật khẩu (tuỳ chọn)" aria-label="Mật khẩu tạo phòng">
-<label><input type="checkbox" id="rpub" checked> Hiện trong danh sách phòng công khai</label>
-<button class="btn yel" id="create">Tạo phòng</button>
-<p id="err" class="mute" role="alert" style="margin:0"></p>
-</div>
-<div class="card stack"><b>Phòng đang mở</b><div id="rooms" class="stack"></div>
-<hr><b>Đóng góp từ mới</b>
-<input type="text" id="wtext" placeholder="Một từ, thành ngữ, tục ngữ…" aria-label="Từ đóng góp" maxlength="80">
-<select id="wkind" class="btn" aria-label="Loại từ"></select>
-<button class="btn" id="wsend">Gửi duyệt</button></div>
-</div></section>
-
-<section id="game" hidden>
-<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-<span class="logo" style="font-size:30px">VẼ ĐI!</span>
-<div style="text-align:center"><div class="mute" id="info" style="font-size:14px"></div><div class="hint" id="hint" aria-live="polite"></div></div>
-<div class="timer" id="time" role="timer">0</div></div>
-<div class="grid">
-<div class="card"><b>Bảng điểm</b><div id="score" style="margin-top:8px"></div>
-<button class="btn yel" id="invite" style="margin-top:12px;width:100%">Sao chép link mời</button>
-<button class="btn" id="leave" style="margin-top:8px;width:100%">Rời phòng</button></div>
-<div>
-<div class="card" id="pick" hidden style="margin-bottom:10px"><b>Chọn một từ để vẽ</b><div id="opts" class="stack" style="margin-top:8px"></div></div>
-<canvas id="cv" width="800" height="600" aria-label="Khung vẽ"></canvas>
-<div id="tools" class="chips" style="margin-top:10px;align-items:center" hidden>
-<button class="sw" data-c="#C8321F" style="background:#C8321F" aria-label="Đỏ"></button><button class="sw" data-c="#0F5F58" style="background:#0F5F58" aria-label="Xanh"></button>
-<button class="sw" data-c="#FFC93C" style="background:#FFC93C" aria-label="Vàng"></button><button class="sw" data-c="#1F2430" style="background:#1F2430" aria-label="Đen"></button>
-<button class="btn" id="eraser" aria-pressed="false">Tẩy</button><button class="btn" id="clear">Xóa hết</button></div></div>
-<div class="card"><b>Đoán chữ</b><div id="log" aria-live="polite"></div>
-<label for="guess" class="mute" style="font-size:14px">Nhập đáp án</label><input type="text" id="guess" autocomplete="off" maxlength="60"></div>
-</div></section>
-</main>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-const socket=io(),$=id=>document.getElementById(id);
-const KINDS=['Từ đơn','Từ ghép','Thành ngữ','Tục ngữ','Ca dao'];let kinds=new Set(['Từ ghép','Thành ngữ']);
-let st=null,roomCode=null;
-const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const nick=()=>$('nick').value.trim()||'Khách';
-function drawKinds(){const b=$('kinds');b.textContent='';KINDS.forEach(k=>{const c=el('button','chip',k);c.setAttribute('aria-pressed',kinds.has(k));c.onclick=()=>{kinds.has(k)?kinds.delete(k):kinds.add(k);if(!kinds.size)kinds.add(k);drawKinds()};b.appendChild(c)})}
-drawKinds();KINDS.forEach(k=>$('wkind').appendChild(new Option(k,k)));
-function entered(r){if(!r.ok){$('err').textContent=r.error||'Không vào được phòng';if(r.needPass)$('joinPass').hidden=false;return}
-  roomCode=r.code;history.replaceState(null,'','?r='+r.code);$('home').hidden=true;$('game').hidden=false;$('log').textContent='';clearCv()}
-$('quick').onclick=()=>socket.emit('room:quick',{nick:nick()},entered);
-$('joinCode').onclick=()=>socket.emit('room:join',{code:$('code').value.trim(),password:$('joinPass').value,nick:nick()},entered);
-$('create').onclick=()=>socket.emit('room:create',{nick:nick(),name:$('rname').value,kinds:[...kinds],time:$('rtime').value,goal:$('rgoal').value,password:$('rpass').value,isPublic:$('rpub').checked},entered);
-$('leave').onclick=()=>{socket.emit('room:leave');$('game').hidden=true;$('home').hidden=false;history.replaceState(null,'','/');st=null;listRooms()};
-$('invite').onclick=()=>navigator.clipboard.writeText(location.origin+'/?r='+roomCode).then(()=>$('invite').textContent='Đã sao chép!',()=>{});
-$('wsend').onclick=()=>socket.emit('word:submit',{text:$('wtext').value,kind:$('wkind').value},r=>{$('err').textContent=r.ok?'Đã gửi, chờ kiểm duyệt. Cảm ơn bạn!':r.error;if(r.ok)$('wtext').value=''});
-function listRooms(){socket.emit('lobby:list',L=>{const b=$('rooms');b.textContent='';if(!L.length)b.appendChild(el('p','mute','Chưa có phòng nào. Hãy tạo phòng đầu tiên!'));
-  L.forEach(r=>{const i=el('div','item'),d=el('div');d.append(el('b',null,r.name+(r.locked?' (khóa)':'')),el('div','mute',r.kinds.join(', ')+' · '+r.players+'/'+r.max+' · '+r.goal+' điểm'));
-  const j=el('button','btn yel','Vào');j.onclick=()=>{$('code').value=r.code;$('joinCode').click()};i.append(d,j);b.appendChild(i)})})}
-setInterval(()=>{if(!$('home').hidden)listRooms()},5000);socket.on('connect',listRooms);
-const q=new URLSearchParams(location.search).get('r');if(q)$('code').value=q;
-
-socket.on('room:state',s=>{st=s;const me=socket.id,drawer=s.drawer===me;
-  $('score').textContent='';[...s.players].sort((a,b)=>b.score-a.score).forEach(p=>{const r=el('div','row'+(p.id===s.drawer?' on':p.solved?' ok':''));
-    r.append(el('span',null,p.nick+(p.id===me?' (bạn)':'')+(p.id===s.drawer?' ✎':'')),el('b',null,p.score));$('score').appendChild(r)});
-  $('info').textContent=s.phase==='lobby'?'Đang chờ thêm người chơi… Mã phòng: '+s.code:s.name+' · Lượt '+s.turn+' · Đạt '+s.goal+' điểm';
-  $('hint').textContent=s.word?s.word:s.hint.join(' ');
-  if(s.phase==='drawing'&&!$('time').dataset.run)$('time').textContent=s.left;
-  $('tools').hidden=!(drawer&&s.phase==='drawing');
-  $('pick').hidden=!(drawer&&s.phase==='choosing');
-  $('guess').disabled=drawer&&s.phase==='drawing';
-  if(s.phase==='choosing'&&!drawer)$('hint').textContent='Đang chọn từ…'});
-socket.on('tick',t=>$('time').textContent=t);
-socket.on('game:choices',c=>{const b=$('opts');b.textContent='';c.forEach(o=>{const x=el('button','btn',o.text);x.style.textAlign='left';x.appendChild(el('div','mute',o.kind));x.onclick=()=>{socket.emit('game:pick',o.text);$('pick').hidden=true};b.appendChild(x)});$('pick').hidden=false});
-socket.on('chat:msg',m=>{const d=el('div',m.sys?'sys':m.priv?'priv':'');if(m.nick)d.appendChild(el('b',null,m.nick+': '));d.appendChild(document.createTextNode(m.text));$('log').appendChild(d);$('log').scrollTop=1e9});
-socket.on('turn:end',m=>addSys('Đáp án: '+m.word));
-socket.on('game:over',L=>addSys('Kết thúc! Hạng nhất: '+L[0].nick+' ('+L[0].score+' điểm). Ván mới sau 10 giây.'));
-function addSys(t){const d=el('div','sys',t);$('log').appendChild(d);$('log').scrollTop=1e9}
-$('guess').addEventListener('keydown',e=>{if(e.key==='Enter'&&$('guess').value.trim()){socket.emit('chat:guess',$('guess').value);$('guess').value=''}});
-
-// ---- Khung vẽ: toạ độ chuẩn hoá 0..1 để mọi kích thước màn hình đều khớp ----
-const cv=$('cv'),ctx=cv.getContext('2d');let col='#C8321F',erase=false,down=false,last=null;
-function clearCv(){ctx.fillStyle='#fff';ctx.fillRect(0,0,800,600)}
-function seg(g){ctx.strokeStyle=g.c;ctx.lineWidth=g.w;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(g.x0*800,g.y0*600);ctx.lineTo(g.x1*800,g.y1*600);ctx.stroke()}
-function pos(e){const r=cv.getBoundingClientRect();return{x:Math.min(1,Math.max(0,(e.clientX-r.left)/r.width)),y:Math.min(1,Math.max(0,(e.clientY-r.top)/r.height))}}
-const canDraw=()=>st&&st.phase==='drawing'&&st.drawer===socket.id;
-cv.addEventListener('pointerdown',e=>{if(!canDraw())return;down=true;last=pos(e);cv.setPointerCapture(e.pointerId);emit(last,last)});
-cv.addEventListener('pointermove',e=>{if(!down)return;const p=pos(e);emit(last,p);last=p});
-['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,()=>down=false));
-function emit(a,b){const g={x0:a.x,y0:a.y,x1:b.x,y1:b.y,c:erase?'#ffffff':col,w:erase?28:8};seg(g);socket.emit('draw:stroke',g)}
-socket.on('draw:stroke',seg);socket.on('draw:clear',clearCv);socket.on('draw:history',h=>{clearCv();h.forEach(seg)});
-document.querySelectorAll('.sw').forEach(b=>b.onclick=()=>{col=b.dataset.c;erase=false;$('eraser').setAttribute('aria-pressed','false');document.querySelectorAll('.sw').forEach(x=>x.setAttribute('aria-pressed',x===b))});
-$('eraser').onclick=()=>{erase=!erase;$('eraser').setAttribute('aria-pressed',erase)};
-$('clear').onclick=()=>{if(canDraw())socket.emit('draw:clear')};
-clearCv();
-</script></body></html>
+[
+{
+"text": "mưa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "nhà",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cá",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "trăng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "sao",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "mây",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "gió",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "lửa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "núi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "sông",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "biển",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cây",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "hoa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "lá",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chim",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "gà",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "vịt",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "heo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bò",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "trâu",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chó",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "mèo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "voi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "hổ",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "rồng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "rùa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ếch",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ong",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bướm",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cua",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "tôm",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ghe",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "thuyền",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cầu",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đường",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cửa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bàn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "ghế",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "giường",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "tủ",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đèn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "quạt",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "dù",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "nón",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "giày",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "áo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "quần",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "mũ",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "kính",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chìa khóa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "sách",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bút",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "thước",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cặp",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "gương",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chổi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "xô",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "nồi",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "chén",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đũa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "muỗng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "dao",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "kéo",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "búa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "cưa",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "thang",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "bóng",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "diều",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "trống",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "đàn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "kèn",
+"kind": "Từ đơn",
+"difficulty": 1
+},
+{
+"text": "con mèo",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cái quạt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xe máy",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh mì",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "áo dài",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nón lá",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cà phê",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "trống cơm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cầu vồng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đèn ông sao",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "xe đạp",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xe buýt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "máy bay",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tàu hỏa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tàu thủy",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xích lô",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ô tô",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cầu thang",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cửa sổ",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tủ lạnh",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "máy giặt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "quạt điện",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bàn học",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ghế sofa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đèn pin",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "điện thoại",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "máy tính",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bàn phím",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "tai nghe",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ổ khóa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh chưng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh tét",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh xèo",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bánh cuốn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "phở bò",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bún chả",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cơm tấm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hủ tiếu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "gỏi cuốn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chả giò",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nem rán",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bún riêu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "xôi gấc",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chè đậu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "sinh tố",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "trà sữa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "kem ốc quế",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "mía đường",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "dưa hấu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "thanh long",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chôm chôm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "măng cụt",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "sầu riêng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "quả xoài",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nải chuối",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bắp ngô",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "củ cà rốt",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "rau muống",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa sen",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa mai",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa đào",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "hoa hướng dương",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "cây dừa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cây tre",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "lúa nước",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ruộng bậc thang",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "con trâu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con cua",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con rùa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con ếch",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con khỉ",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "con cá heo",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "cá chép",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cá sấu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "gà trống",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "vịt quay",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chim bồ câu",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "bướm bướm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chuồn chuồn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đom đóm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ông mặt trời",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "mặt trăng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ngôi sao",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cơn bão",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "cầu Rồng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chùa Một Cột",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "Hồ Gươm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "vịnh Hạ Long",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "nhà sàn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nhà rông",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "chợ nổi",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đèn lồng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "múa lân",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "múa rối nước",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "đàn bầu",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "đàn tranh",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "sáo trúc",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "võng đay",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "nón quai thao",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "xe lăn",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bàn chải",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "kem đánh răng",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "xà phòng",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "khăn tắm",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "bình nước",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ô che mưa",
+"kind": "Từ ghép",
+"difficulty": 2
+},
+{
+"text": "áo mưa",
+"kind": "Từ ghép",
+"difficulty": 1
+},
+{
+"text": "ăn cháo đá bát",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nước chảy đá mòn",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "mèo mả gà đồng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nuôi ong tay áo",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "chạy sấp chạy ngửa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đứng núi này trông núi nọ",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "chuột sa chĩnh gạo",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "ếch ngồi đáy giếng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "thuyền theo lái gái theo chồng",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "mưa dầm thấm lâu",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nước đổ lá khoai",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đầu voi đuôi chuột",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "cá mè một lứa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "cưỡi ngựa xem hoa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đàn gảy tai trâu",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "rút dây động rừng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "vẽ rắn thêm chân",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "treo đầu dê bán thịt chó",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "ăn không ngồi rồi",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "miệng nam mô bụng bồ dao găm",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "tay làm hàm nhai",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "tai vách mạch rừng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "một công đôi việc",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "một nắng hai sương",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nằm gai nếm mật",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "lá lành đùm lá rách",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nhắm mắt làm ngơ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "mở cờ trong bụng",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "cười như nắc nẻ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "khóc như mưa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nhanh như cắt",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "chậm như rùa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "khỏe như voi",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "gầy như cò hương",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "hiền như bụt",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đen như cột nhà cháy",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "trắng như tuyết",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "đẹp như tiên",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "sáng như gương",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "lạnh như tiền",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nóng như lửa",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "ngọt như mía lùi",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "chó treo mèo đậy",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "thả con săn sắt bắt con cá rô",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "lên voi xuống chó",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "ngựa quen đường cũ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "trâu buộc ghét trâu ăn",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "tức nước vỡ bờ",
+"kind": "Thành ngữ",
+"difficulty": 2
+},
+{
+"text": "nói gần nói xa chẳng qua nói thật",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "sông có khúc người có lúc",
+"kind": "Thành ngữ",
+"difficulty": 3
+},
+{
+"text": "có công mài sắt có ngày nên kim",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "uống nước nhớ nguồn",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "một cây làm chẳng nên non",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "gần mực thì đen",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "gần đèn thì sáng",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "ăn quả nhớ kẻ trồng cây",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "học ăn học nói học gói học mở",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "không thầy đố mày làm nên",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "tốt gỗ hơn tốt nước sơn",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "lời nói chẳng mất tiền mua",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "thương người như thể thương thân",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "bầu ơi thương lấy bí cùng",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "một con ngựa đau cả tàu bỏ cỏ",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "chớ thấy sóng cả mà ngã tay chèo",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "đi một ngày đàng học một sàng khôn",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "có chí thì nên",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "thất bại là mẹ thành công",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "cái nết đánh chết cái đẹp",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "tre già măng mọc",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "nhập gia tùy tục",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "ở hiền gặp lành",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "tránh vỏ dưa gặp vỏ dừa",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "dục tốc bất đạt",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "ăn có nhai nói có nghĩ",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "im lặng là vàng",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "chị ngã em nâng",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "anh em như thể tay chân",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "đói cho sạch rách cho thơm",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "cháy nhà ra mặt chuột",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "nước lã mà vã nên hồ",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "gieo gió gặp bão",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "trời mưa thì mặc trời mưa",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "nhiều tay vỗ nên kêu",
+"kind": "Tục ngữ",
+"difficulty": 2
+},
+{
+"text": "bán anh em xa mua láng giềng gần",
+"kind": "Tục ngữ",
+"difficulty": 3
+},
+{
+"text": "con cò bay lả bay la",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "thuyền về có nhớ bến chăng",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "công cha như núi thái sơn",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "nghĩa mẹ như nước trong nguồn chảy ra",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "con cò mà đi ăn đêm",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "trèo lên cây bưởi hái hoa",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "hôm qua tát nước đầu đình",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "qua đình ngả nón trông đình",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "bao giờ cho đến tháng ba",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "ai ơi bưng bát cơm đầy",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "đêm trăng thanh anh mới hỏi nàng",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "gió đưa cành trúc la đà",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "trong đầm gì đẹp bằng sen",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "lúa chiêm lấp ló đầu bờ",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "thân em như hạt mưa sa",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "muốn sang thì bắc cầu kiều",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "con ơi nhớ lấy câu này",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "em như cục đất ven đường",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "cô kia cắt cỏ bên sông",
+"kind": "Ca dao",
+"difficulty": 3
+},
+{
+"text": "ngó lên nuộc lạt mái nhà",
+"kind": "Ca dao",
+"difficulty": 3
+}
+]
